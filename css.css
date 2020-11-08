@@ -1,0 +1,25 @@
+body {
+    background-color: #eceef1;
+}
+
+.mojeTabulka tbody tr:nth-child(odd) td {
+    background-color: #a9f1ff;
+}
+
+.mojeTabulka thead th {
+    color: black;
+    background-color: #00b6d4;
+    font-weight: bold;
+}
+
+.mojeTabulka,
+th,
+td {
+    border-collapse: collapse;
+    border-style: hidden;
+    border: 1px solid black;
+}
+
+.mojeTabulka tbody tr:hover td {
+    background-color: #ffed98;
+}

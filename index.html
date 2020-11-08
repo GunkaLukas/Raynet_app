@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>RAYNET</title>
+    <link rel="stylesheet" href="css.css" type="text/css">
+</head>
+
+<body>
+    <form>
+        <input id="user" name="user" type="text" value="raynet.test@seznam.cz" size="50">UŽIVATEL<br>
+        <input id="apiKey" name="apiKey" type="text" value="crm-8e74e56777db4e2d9240855e4c3af5b9" size="50">API KLÍČ<br>
+        <input id="instance" name="instance" type="text" value="test1" size="50">INSTANCE<br>
+        <input id="request" name="request" type="text" value="https://app.raynet.cz/api/v2/company/" size="50">POŽADAVEK<br>
+    </form>
+    <button onclick="getTable()">Zobraz klienty</button>
+
+    <div id="content"></div>
+
+    <script>
+        function getTable() {
+            var user = document.getElementById("user").value;
+            var api = document.getElementById("apiKey").value;
+            var instance = document.getElementById("instance").value;
+            var request = document.getElementById("request").value;
+            var data = "user="+user+"&"+"api="+api+"&"+"instance="+instance+"&"+"request="+request;
+
+            let xhr = new XMLHttpRequest();
+            xhr.onload = () => {
+                document.getElementById("content").innerHTML = xhr.response;
+            }
+            xhr.open("POST", "scriptTable.php?");
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send(data)
+        }
+    </script>
+</body>
+
+</html>
